@@ -112,6 +112,14 @@ public class MortarPestleBlock extends Block {
             world.playSound(player, pos.getX(), pos.getY(), pos.getZ(), SoundEvents.UI_STONECUTTER_TAKE_RESULT, SoundCategory.NEUTRAL, 1.0F, 1.0F);
             return ActionResult.SUCCESS;
         }
+        if(stack.isOf(Items.WHEAT)) {
+            if (!player.isCreative()) {
+                stack.decrement(1);
+            }
+            dropStack(world, pos, new ItemStack(ItemList.WHEAT_FLOUR, 1));
+            world.playSound(player, pos.getX(), pos.getY(), pos.getZ(), SoundEvents.UI_STONECUTTER_TAKE_RESULT, SoundCategory.NEUTRAL, 1.0F, 1.0F);
+            return ActionResult.SUCCESS;
+        }
         if(stack.isOf(ItemList.RAW_CINNAMON)) {
             if (!player.isCreative()) {
                 stack.decrement(1);
